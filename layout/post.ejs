@@ -1,0 +1,13 @@
+<% include _include/variables.ejs %>
+<%
+config.__title = page.title + " - " + config.title
+config.__desc = page.intro || page.desc || truncate(strip_html(page.content), {
+    length: config.truncate_len ? config.truncate_len : theme.truncate_len ? theme.truncate_len : 140,
+    omission: '...'
+})
+%>
+<% include _include/head.ejs %>
+<!-- 代码高亮库 -->
+
+<link href="<%- url_for(`lib/highlight/styles/atom-one-dark`) %>" rel="stylesheet" type="text/css">
+<%- page.content %>

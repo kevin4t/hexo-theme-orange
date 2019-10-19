@@ -1,0 +1,23 @@
+<div class='nav-bar-container'>
+	<a class="nav-title" href="<%= config.url %>">
+		<%- theme.title ? theme.title : config.title %>
+	</a>
+	<div class="nav-bar">
+		<a class="nav-list-item" href="<%= config.root + "archives" %>">
+            <%= __('归档 / ') %>
+        </a>
+		<% if(site.pages){ %>
+        <% site.pages.each(function (page){if(!page.showOnIndex == true) return %>
+        <a class="nav-list-item%>" href="<%= config.root + page.path %>">
+            <%= page.title %>
+			<%- _(' / ') %>
+        </a>
+        <% });} %>
+		<a class="nav-list-item" href="<%= config.root + theme.rss %>">
+		    <%= __('RSS') %>
+		</a>
+	</div>
+</div>
+<div class="nav-subtitle">
+	<%- theme.subtitle ? theme.subtitle : "" %>
+</div>

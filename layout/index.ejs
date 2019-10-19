@@ -1,0 +1,22 @@
+<% include _include/variables.ejs %>
+<% include _include/side_nav.ejs %>
+<% include _include/head.ejs %>
+<% include _include/navigation.ejs %>
+
+<div class="post-container">
+	
+<% site.posts.forEach(function(item){ %>
+	<div class="post-item-block"></div>
+	<a href="/<%- item.path %>" class="post-item-title"># <%- item.title %></a>
+
+	
+	<div class="post-item-summary">
+		<%= truncate(strip_html(item.content), {
+                                length: config.truncate_len ? config.truncate_len : theme.truncate_len ? theme.truncate_len : 140,
+                                omission: '...'
+             }) %>
+	</div>
+
+<% }); %>
+</div>
+<% include _include/footer.ejs %>

@@ -1,0 +1,21 @@
+<% showSideNav = false; %>
+<div class="side-nav-door" >
+	侧
+</div>
+<div class="side-nav-bar">
+		<div class="side-nav-bar-block"></div>
+		<a class="nav-list-item" href="<%= config.root + "archives" %>">
+	        <%= __('归档') %>
+	    </a>
+		<br>
+		<% if(site.pages){ %>
+	    <% site.pages.each(function (page){if(!page.showOnIndex == true) return %>
+	    <a class="nav-list-item%>" href="<%= config.root + page.path %>">
+	        <%= page.title %>
+	    </a>
+		<br>
+	    <% });} %>
+		<a class="nav-list-item" href="<%= config.root + theme.rss %>">
+		    <%= __('RSS') %>
+		</a>
+</div>
